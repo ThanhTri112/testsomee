@@ -1,14 +1,12 @@
 name: Deploy to Somee via FTP
-
 on:
   push:
     branches:
-      - main   # Deploy khi push vào nhánh main (có thể đổi)
+      - main
 
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
@@ -16,11 +14,11 @@ jobs:
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.3
         with:
-          server: ${{ secrets.FTP_SERVER }}     # ftp.somee.com hoặc domain FTP của bạn
-          username: ${{ secrets.FTP_USERNAME }} # username FTP
-          password: ${{ secrets.FTP_PASSWORD }} # password FTP
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          local-dir: ./                         # thư mục source cần upload (HTML/CSS/JS)
-          server-dir: /                         # thư mục trên hosting (thường là / hoặc /wwwroot/)
+          local-dir: ./
+          server-dir: ./
           timeout: 60000
