@@ -14,8 +14,9 @@ jobs:
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.3
         with:
+          # Sửa lại tên secret cho khớp với ảnh bạn gửi
           server: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
+          username: ${{ secrets.USER }}
           password: ${{ secrets.PW }}
           protocol: ftp
           port: 21
