@@ -14,12 +14,12 @@ jobs:
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.3
         with:
-          # Sửa lại tên secret cho khớp với ảnh bạn gửi
           server: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PW }}
           protocol: ftp
           port: 21
           local-dir: ./
-          server-dir: ./
+          # QUAN TRỌNG: Dòng này giúp đưa file vào đúng thư mục chạy web
+          server-dir: /www.thanhtri.somee.com/
           timeout: 60000
